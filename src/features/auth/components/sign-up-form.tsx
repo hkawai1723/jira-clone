@@ -15,7 +15,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
 import { LoaderCircle } from "lucide-react";
-import { useSignUp } from "@/features/auth/custum-hooks/use-sign-up";
+import { useSignUp } from "@/features/auth/custom-hooks/use-sign-up";
 
 type signUpSchemaType = z.infer<typeof signUpSchema>;
 

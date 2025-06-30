@@ -2,14 +2,14 @@
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { useAuthContext } from "@/context/auth-context";
-import { useLogout } from "@/features/auth/custum-hooks/use-logout";
+import { useLogout } from "@/features/auth/custom-hooks/use-logout";
 import { LoaderCircle, LogOut } from "lucide-react";
 
 export const UserButton = () => {

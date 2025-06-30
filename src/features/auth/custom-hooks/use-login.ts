@@ -1,7 +1,8 @@
+import { loginSchema } from "@/features/schemas";
 import { auth } from "@firebase";
 import { useMutation } from "@tanstack/react-query";
 import { signInWithEmailAndPassword, User } from "firebase/auth";
-import { loginSchema } from "@/features/schemas";
+import { toast } from "sonner";
 import { z } from "zod";
 
 type LoginRequest = z.infer<typeof loginSchema>;
@@ -15,6 +16,12 @@ export const useLogin = () => {
         password,
       );
       return userCredential.user;
+    },
+    onSuccess: () => {
+      toast.success("Logged in");
+    },
+    onError: () => {
+      toast.error("Login failed");
     },
   });
 

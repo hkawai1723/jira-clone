@@ -19,3 +19,13 @@ export const loginSchema = z.object({
     .min(1, "Password is required")
     .max(30, "Password should be at most 30 characters"),
 });
+
+export const createWorkspaceSchema = z.object({
+  name: z.string().min(1, "Workspace name is required"),
+  imageUrl: z
+    .union([
+      z.instanceof(File),
+      z.string().transform((value) => (value === "" ? undefined : value)),
+    ])
+    .optional(),
+});

@@ -1,3 +1,4 @@
+import { signUpSchema } from "@/features/schemas";
 import { auth } from "@firebase";
 import { useMutation } from "@tanstack/react-query";
 import {
@@ -5,7 +6,7 @@ import {
   updateProfile,
   User,
 } from "firebase/auth";
-import { signUpSchema } from "@/features/schemas";
+import { toast } from "sonner";
 import { z } from "zod";
 
 type SignUpRequest = z.infer<typeof signUpSchema>;
@@ -24,6 +25,12 @@ export const useSignUp = () => {
       });
 
       return userCredential.user;
+    },
+    onSuccess: () => {
+      toast.success("Signed up");
+    },
+    onError: () => {
+      toast.error("Failed to sign up.");
     },
   });
 
